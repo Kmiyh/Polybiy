@@ -18,6 +18,7 @@ namespace Permutation
             int repCount = 0;
             int count = 0;
             int newCount = 0;
+            int ind = 0;
             string temp = "";
             int rows = Convert.ToInt32(textBox1.Text);
             int columns = Convert.ToInt32(textBox2.Text);
@@ -63,21 +64,30 @@ namespace Permutation
 
             for (int ch = 0; ch < finalKey.Length; ch++)
             {
-                int ind = Convert.ToInt32(finalKey[ch].ToString());
+                
                 for (int col = 0; col < columns; col++) 
                 {
-                    int colIndex = dataGridView1.Columns[col].Index;
-                    if (colIndex.ToString() == (finalKey[ch]).ToString())
+                    var symb = Convert.ToInt32(finalKey[ch].ToString());
+                    for (int i = 0; i < rows; i++)
                     {
-                        MessageBox.Show((finalKey[ch]).ToString());
-                        for (int i = 0; i < rows; i++)
-                        {
-                            temp += dataGridView1[col, i].Value.ToString();
-                            dataGridView2[ind, i].Value = temp[newCount];
-                            newCount++;
-                        }
-                        break;
+                        temp += dataGridView1[col, i].Value.ToString();
+                        dataGridView2[symb, i].Value = temp[newCount];
+                        newCount++;
                     }
+                    break;
+
+                    //int colIndex = dataGridView1.Columns[col].Index;
+                    //if (colIndex.ToString() == (finalKey[ch]).ToString())
+                    //{
+                    //    //MessageBox.Show((finalKey[ch]).ToString());
+                    //    for (int i = 0; i < rows; i++)
+                    //    {
+                    //        temp += dataGridView1[col, i].Value.ToString();
+                    //        dataGridView2[ch, i].Value = temp[newCount];
+                    //        newCount++;
+                    //    }
+                    //    break;
+                    //}  
                 }
             }
         }
