@@ -77,9 +77,9 @@ namespace Permutation
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 177);
+            this.dataGridView1.Location = new System.Drawing.Point(342, 193);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(691, 199);
+            this.dataGridView1.Size = new System.Drawing.Size(741, 199);
             this.dataGridView1.TabIndex = 3;
             // 
             // label1
@@ -131,15 +131,15 @@ namespace Permutation
             // dataGridView2
             // 
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(709, 177);
+            this.dataGridView2.Location = new System.Drawing.Point(342, 414);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(659, 199);
+            this.dataGridView2.Size = new System.Drawing.Size(741, 199);
             this.dataGridView2.TabIndex = 10;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 379);
+            this.label5.Location = new System.Drawing.Point(202, 288);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(102, 13);
             this.label5.TabIndex = 11;
@@ -148,7 +148,7 @@ namespace Permutation
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(1228, 379);
+            this.label6.Location = new System.Drawing.Point(164, 514);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(140, 13);
             this.label6.TabIndex = 12;
