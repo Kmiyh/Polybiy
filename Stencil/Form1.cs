@@ -68,20 +68,55 @@ namespace Stencil
             }
 
             text = text.Remove(size, size*(size-1));
-            MessageBox.Show(text);
-                for (int j = 0; j < size; j++)
+
+            for (int j = 0; j < size; j++)
+            {
+                for (int k = 0; k < size; k++)
                 {
-                    for (int k = 0; k < size; k++)
+                    if (grid[k, j].ToString() == 1.ToString())
                     {
-                        if (dataGridView1[k, j].Value.ToString() == 1.ToString())
-                        {
-                            //MessageBox.Show(text[count].ToString());
-                            dataGridView2[k, j].Value = text[count];
-                            
-                            count++;
-                        }
+                        //MessageBox.Show(text[count].ToString());
+                        dataGridView2[k, j].Value = text[count];      
+                        count++;
+                    }
                 }
             }
+
+            count = 0;
+            text = textBox3.Text;
+            text = text.Remove(0, size);
+            text = text.Remove(size, size * 2);
+            int[,] grid90 = Rotate(grid);
+
+            for (int j = 0; j < size; j++)
+            {
+                for (int k = 0; k < size; k++)
+                {
+                    if (grid90[k, j].ToString() == 1.ToString())
+                    {
+                        //MessageBox.Show(text[count].ToString());
+                        dataGridView2[k, j].Value = text[count];
+                        count++;
+                    }
+                }
+            }
+        }
+
+        public static int[,] Rotate(int[,] oldMatrix)
+        {
+            int[,] newMatrix = new int[oldMatrix.GetLength(1), oldMatrix.GetLength(0)];
+            int newColumn, newRow = 0;
+            for (int oldColumn = oldMatrix.GetLength(1) - 1; oldColumn >= 0; oldColumn--)
+            {
+                newColumn = 0;
+                for (int oldRow = 0; oldRow < oldMatrix.GetLength(0); oldRow++)
+                {
+                    newMatrix[newRow, newColumn] = oldMatrix[oldRow, oldColumn];
+                    newColumn++;
+                }
+                newRow++;
+            }
+            return newMatrix;
         }
     }
 }
