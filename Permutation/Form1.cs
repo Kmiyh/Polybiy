@@ -34,7 +34,7 @@ namespace Permutation
 
             for (int j = 0; j < columns; j++)
             {
-                dataGridView1.Columns.Add(j.ToString(), j.ToString());
+                dataGridView1.Columns.Add(j.ToString(), (j+1).ToString());
             }
 
             for (int i = 0; i < rows - 1; i++)
@@ -44,7 +44,7 @@ namespace Permutation
 
             for (int j = 0; j < columns; j++)
             {
-                dataGridView2.Columns.Add(j.ToString(), j.ToString());
+                dataGridView2.Columns.Add(j.ToString(), (j + 1).ToString());
             }
 
             for (int i = 0; i < rows - 1; i++)
@@ -80,6 +80,23 @@ namespace Permutation
                     }
                 }
             }
+
+            string result = "";
+            int resultCount = 0;
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < columns; j++)
+                {
+                    result += dataGridView2[j, i].Value.ToString();
+                    resultCount++;
+                }
+            }
+            for (int i = rows; i <= result.Length; i += rows)
+            {
+                result = result.Insert(i, " ");
+                i++;
+            }
+            textBox5.Text = result;
         }
 
         private void Form1_Load(object sender, EventArgs e)
