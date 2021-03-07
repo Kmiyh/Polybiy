@@ -100,6 +100,43 @@ namespace Stencil
                     }
                 }
             }
+
+            count = 0;
+            text = textBox3.Text;
+            text = text.Remove(0, size * 2);
+            text = text.Remove(size, size);
+            int[,] grid180 = Rotate(grid90);
+
+            for (int j = 0; j < size; j++)
+            {
+                for (int k = 0; k < size; k++)
+                {
+                    if (grid180[k, j].ToString() == 1.ToString())
+                    {
+                        //MessageBox.Show(text[count].ToString());
+                        dataGridView2[k, j].Value = text[count];
+                        count++;
+                    }
+                }
+            }
+
+            count = 0;
+            text = textBox3.Text;
+            text = text.Remove(0, size * 3);
+            int[,] grid270 = Rotate(grid180);
+
+            for (int j = 0; j < size; j++)
+            {
+                for (int k = 0; k < size; k++)
+                {
+                    if (grid270[k, j].ToString() == 1.ToString())
+                    {
+                        //MessageBox.Show(text[count].ToString());
+                        dataGridView2[k, j].Value = text[count];
+                        count++;
+                    }
+                }
+            }
         }
 
         public static int[,] Rotate(int[,] oldMatrix)
