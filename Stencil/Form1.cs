@@ -137,6 +137,18 @@ namespace Stencil
                     }
                 }
             }
+
+            string result = "";
+            int resultCount = 0;
+            for (int i = 0; i < size; i++)
+            {
+                for (int j = 0; j < size; j++)
+                {
+                    result += dataGridView2[j, i].Value.ToString();
+                    resultCount++;
+                }
+            }
+            textBox4.Text = result;
         }
 
         public static int[,] Rotate(int[,] oldMatrix)
