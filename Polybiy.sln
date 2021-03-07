@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Polybiy", "Polybiy\Polybiy.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Permutation", "Permutation\Permutation.csproj", "{4410C7D5-3B49-4C33-8EC6-2AC8169D3353}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stencil", "Stencil\Stencil.csproj", "{4D97083F-3BEB-4B16-A69C-D9E2FF9EFAF1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{B1398955-DEE7-473B-B31C-EDEBAF0A52A9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{4410C7D5-3B49-4C33-8EC6-2AC8169D3353}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4410C7D5-3B49-4C33-8EC6-2AC8169D3353}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4410C7D5-3B49-4C33-8EC6-2AC8169D3353}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D97083F-3BEB-4B16-A69C-D9E2FF9EFAF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D97083F-3BEB-4B16-A69C-D9E2FF9EFAF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D97083F-3BEB-4B16-A69C-D9E2FF9EFAF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D97083F-3BEB-4B16-A69C-D9E2FF9EFAF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1398955-DEE7-473B-B31C-EDEBAF0A52A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1398955-DEE7-473B-B31C-EDEBAF0A52A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1398955-DEE7-473B-B31C-EDEBAF0A52A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1398955-DEE7-473B-B31C-EDEBAF0A52A9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
