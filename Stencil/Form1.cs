@@ -5,6 +5,7 @@ namespace Stencil
 {
     public partial class Form1 : Form
     {
+        public int removeCounter;
         public Form1()
         {
             InitializeComponent();
@@ -61,32 +62,14 @@ namespace Stencil
                 }
             }
 
-            text = text.Remove(size, size*(size-1));
-
-            Detect(grid, size, text, count);
-
-            text = textBox3.Text;
-            text = text.Remove(0, size);
-            text = text.Remove(size, size * 2);
-            grid = Rotate(grid);
-
-            Detect(grid, size, text, count);
-
-            text = textBox3.Text;
-            text = text.Remove(0, size * 2);
-            text = text.Remove(size, size);
-            grid = Rotate(grid);
-
-            Detect(grid, size, text, count);
-
-            text = textBox3.Text;
-            text = text.Remove(0, size * 3);
-            grid = Rotate(grid);
-
-            Detect(grid, size, text, count);
-
-            // еще один поворот для возврата в исходное состояние
-            grid = Rotate(grid);
+            for (int i = 0; i < 4; i++)
+            {
+                string temp = text.Substring(0, size);
+                Detect(grid, size, temp, count);
+                grid = Rotate(grid);
+                text = text.Remove(0, removeCounter);
+                MessageBox.Show(text);
+            }
 
             string result = "";
             int resultCount = 0;
@@ -115,6 +98,7 @@ namespace Stencil
                     }
                 }
             }
+            removeCounter = count;
         }
 
         // поворот решетки по часовой стрелке
@@ -133,6 +117,17 @@ namespace Stencil
                 newRow++;
             }
             return newMatrix;
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+            if (Int32.TryParse(textBox1.Text, out int j))
+            {
+                int numVal = j * j;
+                string counter = textBox3.Text.Length.ToString();
+                label2.Text = counter + "/" + numVal.ToString() + " симв.";
+            }
+            
         }
     }
 }
