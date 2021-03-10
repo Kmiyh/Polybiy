@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Permutation", "Permutation\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stencil", "Stencil\Stencil.csproj", "{4D97083F-3BEB-4B16-A69C-D9E2FF9EFAF1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwoTable", "TwoTable\TwoTable.csproj", "{6E830A02-E09B-4893-9B21-32008B38263D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{4D97083F-3BEB-4B16-A69C-D9E2FF9EFAF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4D97083F-3BEB-4B16-A69C-D9E2FF9EFAF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4D97083F-3BEB-4B16-A69C-D9E2FF9EFAF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E830A02-E09B-4893-9B21-32008B38263D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E830A02-E09B-4893-9B21-32008B38263D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E830A02-E09B-4893-9B21-32008B38263D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E830A02-E09B-4893-9B21-32008B38263D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
