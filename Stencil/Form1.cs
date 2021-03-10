@@ -5,12 +5,13 @@ namespace Stencil
 {
     public partial class Form1 : Form
     {
+        public int removeCounter;
         public Form1()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
             int size = Convert.ToInt32(textBox1.Text);
             // создать размерность трафарета
@@ -24,6 +25,16 @@ namespace Stencil
                 dataGridView1.Rows.Add();
             }
 
+            // заполняем нулями
+            for (int i = 0; i < size; i++)
+            {
+                for (int j = 0; j < size; j++)
+                {
+                    dataGridView1[i, j].Value = 0;
+                }
+            }
+
+            // таблица для вывода
             for (int j = 0; j < size; j++)
             {
                 dataGridView2.Columns.Add(j.ToString(), "");
@@ -33,25 +44,16 @@ namespace Stencil
             {
                 dataGridView2.Rows.Add();
             }
-
-            // заполняем нулями
-            for (int i = 0; i < size; i++)
-            {
-                for (int j = 0; j < size; j++)
-                {
-                    dataGridView1[i, j].Value = 0;
-                }
-            }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void Button2_Click(object sender, EventArgs e)
         {
             string text = textBox3.Text;
             int count = 0;
             int size = Convert.ToInt32(textBox1.Text);
             int[,] grid = new int[size, size];
-            int[,] resultGrid = new int[size, size];
 
+            // заполняем трафарет
             for (int i = 0; i < size; i++)
             {
                 for (int j = 0; j < size; j++)
@@ -60,75 +62,13 @@ namespace Stencil
                 }
             }
 
-            text = text.Remove(size, size*(size-1));
-
-            for (int j = 0; j < size; j++)
+            for (int i = 0; i < 4; i++)
             {
-                for (int k = 0; k < size; k++)
-                {
-                    if (grid[k, j].ToString() == 1.ToString())
-                    {
-                        //MessageBox.Show(text[count].ToString());
-                        dataGridView2[k, j].Value = text[count];      
-                        count++;
-                    }
-                }
-            }
-
-            count = 0;
-            text = textBox3.Text;
-            text = text.Remove(0, size);
-            text = text.Remove(size, size * 2);
-            int[,] grid90 = Rotate(grid);
-
-            for (int j = 0; j < size; j++)
-            {
-                for (int k = 0; k < size; k++)
-                {
-                    if (grid90[k, j].ToString() == 1.ToString())
-                    {
-                        //MessageBox.Show(text[count].ToString());
-                        dataGridView2[k, j].Value = text[count];
-                        count++;
-                    }
-                }
-            }
-
-            count = 0;
-            text = textBox3.Text;
-            text = text.Remove(0, size * 2);
-            text = text.Remove(size, size);
-            int[,] grid180 = Rotate(grid90);
-
-            for (int j = 0; j < size; j++)
-            {
-                for (int k = 0; k < size; k++)
-                {
-                    if (grid180[k, j].ToString() == 1.ToString())
-                    {
-                        //MessageBox.Show(text[count].ToString());
-                        dataGridView2[k, j].Value = text[count];
-                        count++;
-                    }
-                }
-            }
-
-            count = 0;
-            text = textBox3.Text;
-            text = text.Remove(0, size * 3);
-            int[,] grid270 = Rotate(grid180);
-
-            for (int j = 0; j < size; j++)
-            {
-                for (int k = 0; k < size; k++)
-                {
-                    if (grid270[k, j].ToString() == 1.ToString())
-                    {
-                        //MessageBox.Show(text[count].ToString());
-                        dataGridView2[k, j].Value = text[count];
-                        count++;
-                    }
-                }
+                string temp = text.Substring(0, size);
+                Detect(grid, size, temp, count);
+                grid = Rotate(grid);
+                text = text.Remove(0, removeCounter);
+                MessageBox.Show(text);
             }
 
             string result = "";
@@ -144,6 +84,24 @@ namespace Stencil
             textBox4.Text = result;
         }
 
+        // вставка символов в новую таблицу
+        public void Detect(int[,] grid, int size, string text, int count)
+        {
+            for (int j = 0; j < size; j++)
+            {
+                for (int k = 0; k < size; k++)
+                {
+                    if (grid[k, j].ToString() == 1.ToString())
+                    {
+                        dataGridView2[k, j].Value = text[count];
+                        count++;
+                    }
+                }
+            }
+            removeCounter = count;
+        }
+
+        // поворот решетки по часовой стрелке
         public static int[,] Rotate(int[,] oldMatrix)
         {
             int[,] newMatrix = new int[oldMatrix.GetLength(1), oldMatrix.GetLength(0)];
@@ -159,6 +117,17 @@ namespace Stencil
                 newRow++;
             }
             return newMatrix;
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+            if (Int32.TryParse(textBox1.Text, out int j))
+            {
+                int numVal = j * j;
+                string counter = textBox3.Text.Length.ToString();
+                label2.Text = counter + "/" + numVal.ToString() + " симв.";
+            }
+            
         }
     }
 }
