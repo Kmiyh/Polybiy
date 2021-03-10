@@ -64,13 +64,28 @@ namespace Stencil
 
             for (int i = 0; i < 4; i++)
             {
-                string temp = text.Substring(0, size);
-                Detect(grid, size, temp, count);
-                grid = Rotate(grid);
-                text = text.Remove(0, removeCounter);
-                MessageBox.Show(text);
+                if (text.Length < size)
+                {
+                    int test = size - text.Length;
+                    string temp = text.Substring(0, size - test);
+                    Detect(grid, size, temp, count);
+                    grid = Rotate(grid);
+                    text = text.Remove(0, removeCounter);
+                    count = 0;
+                    MessageBox.Show(text);
+                } 
+                else
+                {
+                    string temp = text.Substring(0, size);
+                    Detect(grid, size, temp, count);
+                    grid = Rotate(grid);
+                    text = text.Remove(0, removeCounter);
+                    count = 0;
+                    MessageBox.Show(text);
+                } 
             }
 
+            
             string result = "";
             int resultCount = 0;
             for (int i = 0; i < size; i++)
